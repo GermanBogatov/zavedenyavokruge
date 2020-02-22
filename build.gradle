@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'zavedenyavokruge'
+group 'org.example'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -13,4 +13,10 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.telegram', name: 'telegrambots', version: '4.4.0.1'
+    compile group: 'org.telegram', name:'Bots', version: '4.4.0.1'
+    compile group: 'org.telegram', name:'telegrambots-abilities', version: '4.4.0.1'
+    compile group: 'org.telegram', name: 'telegrambots', version: '4.4.0.1'
+    compile group: 'org.telegram', name:'Bots', version: '4.4.0.1'
+    compile group: 'org.telegram', name:'telegrambots-abilities', version: '4.4.0.1'
 }
