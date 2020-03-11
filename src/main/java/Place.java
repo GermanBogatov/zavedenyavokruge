@@ -3,10 +3,32 @@ import java.io.Serializable;
 
 
 public class Place implements Serializable {
+    public static class MyLocation {
+        Float latitude;
+        Float longitude;
+
+        MyLocation(Float latitude, Float longitude) {
+            this.latitude = latitude;
+            this.longitude = longitude;
+        }
+
+        MyLocation(Location location) {
+            this.latitude = location.getLatitude();
+            this.longitude = location.getLongitude();
+        }
+
+        public Float getLatitude() {
+            return latitude;
+        }
+
+        public Float getLongitude() {
+            return longitude;
+        }
+    }
     private String name;
     private PlaceType type;
     private CousinType cousin;
-    private Location location;
+    private MyLocation location;
     private int averageCheck;
     private String description;
 
@@ -16,7 +38,17 @@ public class Place implements Serializable {
         this.name = name;
         this.type = type;
         this.description = description;
-        this.location = location;
+        this.location = new MyLocation(location);
+        this.averageCheck = averageCheck;
+        this.cousin = cousin;
+    }
+
+    Place(String name, PlaceType type, String description, Float latitude, Float longitude,
+          int averageCheck, CousinType cousin) {
+        this.name = name;
+        this.type = type;
+        this.description = description;
+        this.location = new MyLocation(latitude, longitude);
         this.averageCheck = averageCheck;
         this.cousin = cousin;
     }
@@ -24,7 +56,7 @@ public class Place implements Serializable {
     public String getName() {
         return name;
     }
-    public Location getLocation() {
+    public MyLocation getLocation() {
         return location;
     }
     public PlaceType getType() {
